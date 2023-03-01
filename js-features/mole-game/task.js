@@ -29,7 +29,7 @@ function scoreGame() {
 function getHole(index) {
   for (let i = 1; i <= index; i++) {
     let hole = document.getElementById(`hole${i}`);
-    hole.onclick = function () {
+    function holeClick () {
       if (hole.className.includes("hole_has-mole")) {
         deadCount++;
         newGame();
@@ -40,6 +40,7 @@ function getHole(index) {
         scoreGame();
       }
     }
+    hole.onclick = holeClick;
   }
 }
 getHole();

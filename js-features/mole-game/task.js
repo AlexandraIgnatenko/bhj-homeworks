@@ -20,7 +20,8 @@ function scoreGame() {
   if (deadCount === 10) {
     result = "победили";
     newGame(result);
-  } if (lostCount === 5) {
+  }
+  if (lostCount === 5) {
     result = "проиграли";
     newGame(result);
   }
@@ -29,18 +30,17 @@ function scoreGame() {
 function getHole(index) {
   for (let i = 1; i <= index; i++) {
     let hole = document.getElementById(`hole${i}`);
-    function holeClick () {
+    hole.onclick = function () {
       if (hole.className.includes("hole_has-mole")) {
         deadCount++;
-        newGame();
+        reload();
         scoreGame();
       } else {
         lostCount++;
-        newGame();
+        reload();
         scoreGame();
       }
-    }
-    hole.onclick = holeClick;
+    };
   }
 }
-getHole();
+getHole(9);

@@ -2,10 +2,10 @@ let countDownn = function() {
     let timer = document.getElementById("timer");
     timer.textContent--;
     if (timer.textContent <= 0) {
-      clearTimeout(timer);
+      clearInterval(timerId);
       alert("Вы победили в конкурсе!");
     } 
 }
 
-setInterval(countDownn, 1000);
+let timerId = setInterval(countDownn, 1000);
 

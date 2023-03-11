@@ -8,5 +8,9 @@ links.forEach((link) => {
       link.parentElement.querySelector(".menu_sub").classList.add("menu_active");
       return false;
     }
+    if (link.onclick) {
+        subMenu.forEach((item) => item.classList.remove("menu_active"));
+        return false;
+    }
   };
 });

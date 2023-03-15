@@ -1,16 +1,12 @@
-const links = Array.from(document.querySelectorAll(".menu__link"));
-const subMenu = Array.from(document.querySelectorAll(".menu_sub"));
+const listItems = Array.from(document.querySelectorAll(".menu__item"));
 
-links.forEach((link) => {
-  link.onclick = () => {
-    if (link.parentElement.querySelector(".menu_sub") !== null) {
-      subMenu.forEach((item) => item.classList.remove("menu_active"));
-      link.parentElement.querySelector(".menu_sub").classList.add("menu_active");
-      return false;
+for (let index = 0; index < listItems.length; index++) { 
+  const link = listItems[index].querySelector(".menu__link");          
+    const menuMenu = listItems[index].querySelector(".menu.menu_sub");
+    if (menuMenu !== null && link !== null) {                                          
+        link.onclick = () => {                               
+          menuMenu.classList.toggle("menu_active");
+          return false;
+        }
     }
-    if (link.onclick) {
-        subMenu.forEach((item) => item.classList.remove("menu_active"));
-        return false;
-    }
-  };
-});
+}

@@ -7,6 +7,7 @@ function changeSlide() {
   const itemIndex = items.findIndex(item => item === activeItem);
   const navNext = this.className.includes("next") ? 1 : -1;
   let index = itemIndex + navNext;
+  activeItem.className = "slider__item";
   
   if (index < 0) {
       index = items.length - 1;
